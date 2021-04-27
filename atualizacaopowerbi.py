@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 
-driver = webdriver.Chrome(executable_path='C:/chromedriver.exe')
+driver = webdriver.Chrome(executable_path='chromedriver.exe')
 email = "paineldevagas@prefeitura.sp.gov.br"
 senha = "C#p4$21V"
 
@@ -57,14 +57,33 @@ try:
         EC.presence_of_element_located((By.XPATH, "//button[@title='CENTRAL DE VAGAS']"))
     )
     centralvagas_elem.click()
+    
+    centralvagas_elem = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//div[@class='cdk-virtual-scroll-content-wrapper']"))
+    )
+    
+    dashboards_button = driver.find_elements_by_css_selector(".row.ng-star-inserted")[1] 
+
+    
+    action.move_to_element(dashboards_button)
+
+    action.perform()
+    
+    print("deu bom")
+    
+
+    
+#     update_button = driver.find_element_by_css_selector(".quick-action-button.ng-star-inserted")
+    
+    
 
     buttonatualizarpainel_elem = WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.XPATH, "//button[@title='Atualizar agora']"))
     )
+    
+    buttonatualizarpainel_elem.click()
 
-    action.move_to_element(buttonatualizarpainel_elem).click_and_hold().perform().click().perform()
-
-    print("tudo certo")
+    print("deu bom")
 
 except Exception as e:
     print(e)
