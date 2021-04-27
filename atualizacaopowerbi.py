@@ -72,9 +72,7 @@ try:
     print("deu bom")
     
 
-    
-#     update_button = driver.find_element_by_css_selector(".quick-action-button.ng-star-inserted")
-    
+      
     
 
     buttonatualizarpainel_elem = WebDriverWait(driver, 20).until(
