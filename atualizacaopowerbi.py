@@ -8,8 +8,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 
 driver = webdriver.Chrome(executable_path='chromedriver.exe')
-email = "paineldevagas@prefeitura.sp.gov.br"
-senha = "C#p4$21V"
+email = "------------------------"
+senha = "------------------------"
 
 driver.get("https://app.powerbi.com/")
 action = ActionChains(driver)
